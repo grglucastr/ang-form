@@ -29,6 +29,8 @@ export class AppComponent {
     console.log('Form: ', form);
     console.log('cliente::', this.cliente);
 
+    form.reset({profissao: ''});
+
 
 
   }
