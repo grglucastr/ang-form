@@ -12,8 +12,10 @@
   <div class="row">
     <div class="col-sm-6">
       <form #form="ngForm" (ngSubmit)="submitForm(form)" >
-        <div class="form-group">
-          <label for="nome">Nome</label>
+
+        <div class="form-group"
+          [class.has-danger]="nome.touched && nome.invalid">
+          <label class="form-control-label" for="nome">Nome</label>
           <input
             type="text"
             class="form-control"
@@ -25,12 +27,12 @@
             minlength="5"
             autocomplete="off" >
           <small
-            class="text-danger"
+            class="invalid-feedback form-text text-muted"
             *ngIf="nome.touched && nome.hasError('required')">
             Informe um nome
           </small>
           <small
-            class="text-danger"
+            class="form-control-feedback"
             *ngIf="nome.touched && nome.hasError('minlength')">
             O nome deve ser completo
           </small>
